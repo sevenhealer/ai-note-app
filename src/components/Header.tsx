@@ -3,9 +3,10 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ModeToggle";
 import { LogoutButton } from "./LogoutButton";
+import { getUser } from "@/utils/superbase/server";
 
-export default function Header() {
-    const user = null
+export default async function Header() {
+    const user = await getUser()
     return (
         <header className="relative flex h-24 w-full items-center justify-between bg-popover px-3 sm:px-8 shadow-blue-500 shadow-sm">
             <Link href="/" className="flex items-center gap-2">
